@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActionCollection version="2" name="Scripts">
+    <Actions category="Scripts">
+
+        <text>Scripts</text>
+        <text>Super Docker Lock</text> 
+        <Action name="super_docker_lock">
+            <text>Super Docker Lock</text>
+        </Action>
+
+    </Actions>
+</ActionCollection>

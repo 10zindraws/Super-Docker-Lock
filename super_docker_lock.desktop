@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=Krita/PythonPlugin
+X-KDE-Library=super_docker_lock
+X-Python-2-Compatible=false
+Name=Super Docker Lock
+Comment=Lock/unlock all dockers from being resized
