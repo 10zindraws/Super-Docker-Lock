@@ -63,6 +63,15 @@ def _is_grouped_docker(main_window, dock_widget):
         if not dock.isFloating()
     ]
     return len(tabified_list) > 0
+    
+def _has_utility_title_bar(dock_widget):
+    """Check if the dock widget uses a KisUtilityTitleBar which contains
+    functional controls (e.g. Animation Timeline, Animation Curves) that
+    must remain visible even when the titlebar would normally be collapsed."""
+    title_bar = dock_widget.titleBarWidget()
+    if not title_bar:
+        return False
+    return title_bar.inherits("KisUtilityTitleBar")
 
 def _is_lock_docker_button(button):
     if not button:
@@ -351,7 +360,7 @@ def _update_docker_ui_for_dock(main_window, dock_widget, lock_enabled):
         return
 
     if lock_enabled:
-        if _is_grouped_docker(main_window, dock_widget):
+        if _is_grouped_docker(main_window, dock_widget) and not _has_utility_title_bar(dock_widget):
             _set_title_bar_visible(dock_widget, False)
         else:
             _set_title_bar_visible(dock_widget, True)
@@ -542,7 +551,7 @@ def update_grouped_docker_title_bars(main_window=None, hide_grouped=False):
             _set_title_bar_visible(dock, True)
             continue
         is_grouped = _is_grouped_docker(main_window, dock)
-        if hide_grouped and is_grouped:
+        if hide_grouped and is_grouped and not _has_utility_title_bar(dock):
             _set_title_bar_visible(dock, False)
         else:
             _set_title_bar_visible(dock, True)
