@@ -4,4 +4,4 @@ ServiceTypes=Krita/PythonPlugin
 X-KDE-Library=super_docker_lock
 X-Python-2-Compatible=false
 Name=Super Docker Lock
-Comment=Lock/unlock all dockers from being resized
+Comment=Hide docker title bars for a clean workspace (except Animation Timeline)
